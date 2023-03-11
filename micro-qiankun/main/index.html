@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qiankun微前端实战主战</title>
+    <style>
+      li {
+        list-style: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="qiankun-app">
+      <nav>
+        <a href="/vue">路由1</a>
+        <a href="/vue2">路由2</a>
+      </nav>
+      <div class="app-container">
+        <div id="app1">{{tempalte1}}</div>
+        <div id="app2">{{tempalte2}}</div>
+      </div>
+    </div>
+    <script>
+      function push(subapp) {
+        history.pushState(null, subapp, subapp);
+      }
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>

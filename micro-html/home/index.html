@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>h5主战
+  </title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.3/vue-router.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/systemjs/6.7.1/s.min.js "></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    Vue.use(VueRouter);
+    const router = new VueRouter({
+      mode: 'hash',
+      routes: [
+        {
+          path: '/buylist',
+          name: "buylist",
+          component: () => System.import("http://127.0.0.1:8080/buylist.js")
+          // {
+          //   // 如何去加载组件
+            
+          // }
+
+        }
+      ]
+    })
+    Vue.component("App",{
+      template:`<div class="app">
+    <h2>为前端部署方案</h2>
+    <router-link to="/">首页</router-link>
+    <router-link to="/buylist">购买组件</router-link>
+    <router-view></router-view>
+  </div>`
+    })
+    new Vue({
+      router,
+      template: '<App/>'
+    }).$mount(document.getElementById('app'))
+  </script>
+</body>
+
+</html>
